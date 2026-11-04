@@ -117,9 +117,9 @@ tickClocks();
 setInterval(tickClocks, 1000);
 
 // ================= Tabs =================
-document.querySelectorAll(".tab").forEach(tab => {
+document.querySelectorAll(".tab[data-panel]").forEach(tab => {
   tab.addEventListener("click", () => {
-    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    document.querySelectorAll(".tab[data-panel]").forEach(t => t.classList.remove("active"));
     document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
     tab.classList.add("active");
     document.getElementById(tab.dataset.panel).classList.add("active");

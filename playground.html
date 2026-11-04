@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ragdoll Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="playground.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <h1>Ragdoll Playground</h1>
+    </div>
+    <nav class="tabs">
+      <a class="tab" href="index.html">World Clock</a>
+      <a class="tab active" href="playground.html">Playground</a>
+    </nav>
+  </header>
+
+  <main class="pg-main">
+    <!-- Ground type toggles -->
+    <section class="ground-bar">
+      <p class="label">Ground type</p>
+      <div class="ground-pills" id="ground-pills"><!-- filled by playground.js --></div>
+      <p class="ground-desc" id="ground-desc"></p>
+    </section>
+
+    <!-- Viewport -->
+    <section class="viewport">
+      <canvas id="view" aria-label="Ragdoll playground viewport"></canvas>
+      <div class="hud">
+        <span class="chip" id="hud-state">Standing</span>
+        <span>Speed <b id="hud-speed">0</b> px/s</span>
+        <span>Slope <b id="hud-slope">0°</b></span>
+      </div>
+      <div class="drag-tip">Drag the character with your mouse or finger</div>
+      <div class="hint" id="hint" hidden>Stuck? Press <kbd>R</kbd> or <b>Respawn</b></div>
+    </section>
+
+    <!-- On-screen controller -->
+    <section class="controls">
+      <div class="pad">
+        <button class="ctl" data-hold="left" aria-label="Move left">◀</button>
+        <button class="ctl" data-hold="crouch" aria-label="Crouch">▼</button>
+        <button class="ctl" data-hold="right" aria-label="Move right">▶</button>
+      </div>
+      <div class="actions">
+        <button class="ctl wide" data-action="ragdoll" id="btn-ragdoll">Ragdoll: off</button>
+        <button class="ctl wide" data-action="shove">Shove</button>
+        <button class="ctl wide" data-action="reset">Respawn</button>
+        <button class="ctl wide" data-action="debug" id="btn-debug">Debug: off</button>
+      </div>
+      <button class="ctl primary" data-action="jump">Jump</button>
+    </section>
+
+    <!-- Keyboard legend -->
+    <section class="keys">
+      <div><kbd>A</kbd> <kbd>D</kbd> / <kbd>←</kbd> <kbd>→</kbd> Walk</div>
+      <div><kbd>W</kbd> / <kbd>↑</kbd> / <kbd>Space</kbd> Jump</div>
+      <div><kbd>S</kbd> / <kbd>↓</kbd> Crouch</div>
+      <div><kbd>F</kbd> Toggle ragdoll</div>
+      <div><kbd>E</kbd> Shove</div>
+      <div><kbd>R</kbd> Respawn</div>
+      <div><kbd>G</kbd> Debug view</div>
+      <div><kbd>1</kbd>–<kbd>0</kbd> Switch ground</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Verlet-physics ragdoll with procedural balance and foot placement.
+  </footer>
+
+  <script src="playground.js"></script>
+</body>
+</html>

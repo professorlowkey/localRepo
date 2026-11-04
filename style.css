@@ -74,6 +74,7 @@ body {
   transition: background 0.2s, color 0.2s;
 }
 .tab:hover { color: var(--text); }
+a.tab { text-decoration: none; display: inline-flex; align-items: center; }
 .tab.active { background: var(--accent); color: #fff; }
 
 /* ---------- Layout ---------- */
